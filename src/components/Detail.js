@@ -18,10 +18,10 @@ const Detail = ({
     >
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{ gap: { xs: "20px", lg: "35px" } }}>
-        <Typography variant="h3">{name}</Typography>
+        <Typography variant="h3" style={{textTransform: 'capitalize'}} >{name}</Typography>
         <Typography variant="h6">
           Exercises keep you strong.
-          {name} is one of the best exercises to target your {target}.It will
+          <span style={{textTransform: 'capitalize'}}> {name}</span> is one of the best exercises to target your {target}.It will
           help you improve your mood and gain energy
         </Typography>
         {extraDetail.map(({ name, icon }, index) => (

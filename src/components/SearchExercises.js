@@ -36,6 +36,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       setExercises(searchedExercises);
     }
   };
+
+  const onKeyPress = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value.toLowerCase());
+  };
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
       <Typography
@@ -60,7 +65,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           }}
           height="76px"
           value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+          onChange={onKeyPress}
           placeholder="Search Exercises"
           type="text"
         />
@@ -81,7 +86,13 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           Search
         </Button>
       </Box>
-      <Box sx={{ position: "relative", width: "100%", p: "20px", overflow: 'auto' }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          p: "20px"
+        }}
+      >
         <HorizontalScrollbar
           data={bodyParts}
           bodyPart={bodyPart}

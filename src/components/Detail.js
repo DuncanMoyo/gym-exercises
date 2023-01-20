@@ -24,8 +24,8 @@ const Detail = ({
           {name} is one of the best exercises to target your {target}.It will
           help you improve your mood and gain energy
         </Typography>
-        {extraDetail.map(({ name, icon }) => (
-          <Stack key={name} direction="row" gap="24px" alignItems="center">
+        {extraDetail.map(({ name, icon }, index) => (
+          <Stack key={index} direction="row" gap="24px" alignItems="center">
             <Button
               sx={{
                 background: "#fff2db",

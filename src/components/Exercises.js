@@ -4,17 +4,16 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { ExerciseCard } from ".";
 
 const Exercises = ({ setExercises, exercises, bodyPart }) => {
-  // console.log('What is the exercise: ', exercises);
+  // console.log("What is the exercise: ", exercises);
 
   const [currentPage, setCurrentPage] = useState(1);
   const exercisesPerPage = 9;
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = exercises.slice(
-    indexOfFirstExercise,
-    indexOfLastExercise
-  );
+  const currentExercises = Array.isArray(exercises)
+    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+    : [];
 
   const paginate = (e, value) => {
     setCurrentPage(value);
